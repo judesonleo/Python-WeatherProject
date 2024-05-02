@@ -10,7 +10,7 @@ root = Tk()
 root.title("Weather App")
 root.geometry("900x500+300+200")
 root.resizable(False, False)
-
+color='#905040'
 def getweather():
     try:
         city = textfield.get()
@@ -27,8 +27,8 @@ def getweather():
         name.config(text="CURRENT WEATHER")
 
         # Weather
-        api = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=67b0882b042b7fb96669fa1a487a9788"
-
+        api = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=7aecb547118d7e5638a3bd8a0a251a0f"
+        print(api)
         json_data = requests.get(api).json()
         condition = json_data['weather'][0]['main']
         description = json_data['weather'][0]['description']
@@ -60,7 +60,7 @@ textfield.place(x=50, y=40)
 textfield.focus()
 
 search_icon = PhotoImage(file="search_icon.png")
-myimage_icon = Button(image=search_icon, borderwidth=0, cursor="hand2", bg="#404040", command=getweather)
+myimage_icon = Button(image=search_icon, borderwidth=0, cursor="hand2", bg=color, command=getweather)
 myimage_icon.place(x=400, y=34)
 
 # Logo
